@@ -13,3 +13,41 @@
     <script src="script.js"></script>
 </body>
 </html>
+<title>Togglable Clock Format</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 id="clock"></h1>
+        <label class="toggle-switch">
+            <input type="checkbox" id="formatToggle">
+            <span class="slider"></span>
+        </label>
+        <span id="settings-icon" onclick="openSettingsModal()">⚙️</span>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal">
+        <div class="modal-content">
+            <label for="background-color">Choose Background Color:</label>
+            <select id="background-color">
+                <option value="#f4f4f4">Default</option>
+                <option value="#3498db">Blue</option>
+                <option value="#2ecc71">Green</option>
+                <option value="#e74c3c">Red</option>
+                <option value="#f39c12">Yellow</option>
+                <option value="#9b59b6">Purple</option>
+            </select>
+            <label for="font-color">Choose Font Color:</label>
+            <select id="font-color">
+                <option value="#333">Default</option>
+                <option value="#fff">White</option>
+                <option value="#000">Black</option>
+                <option value="#e67e22">Orange</option>
+                <option value="#2c3e50">Dark Gray</option>
+                <option value="#ecf0f1">Light Gray</option>
+            </select>
+            <button id="save-btn" onclick="saveSettings()">Save</button>
+        </div>
+    </div>
