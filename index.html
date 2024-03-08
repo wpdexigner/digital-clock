@@ -1,53 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Clock</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock Notion Widget</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for cog icon -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600&display=swap">
 </head>
 <body>
-    <div id="clock"></div>
-    <!-- Toggle button for changing clock format -->
-    <button id="toggleFormat">12-Hour</button>
-    <script src="script.js"></script>
+  <div id="clock"></div>
+  <!-- Replace the settings-icon span with this button -->
+  <button id="settings-btn" onclick="openModal()"><i class="fas fa-cog"></i></button>
+
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Settings</h2>
+      <label for="theme">Theme:</label>
+      <select id="theme" onchange="changeTheme(this.value)">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+      <br>
+      <!-- The Background Color select will be populated dynamically -->
+      <label for="background-color">Background Color:</label>
+      <select id="background-color" onchange="changeBackgroundColor(this.value)">
+      </select>
+      <br>
+      <label for="time-format">Time Format:</label>
+      <select id="time-format" onchange="changeTimeFormat(this.value)">
+        <option value="12">12-Hour</option>
+        <option value="24">24-Hour</option>
+      </select>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-<title>Togglable Clock Format</title>
-</head>
-
-<body>
-
-    <div class="container">
-        <h1 id="clock"></h1>
-        <label class="toggle-switch">
-            <input type="checkbox" id="formatToggle">
-            <span class="slider"></span>
-        </label>
-        <span id="settings-icon" onclick="openSettingsModal()">⚙️</span>
-    </div>
-
-    <!-- Settings Modal -->
-    <div id="settings-modal">
-        <div class="modal-content">
-            <label for="background-color">Choose Background Color:</label>
-            <select id="background-color">
-                <option value="#f4f4f4">Default</option>
-                <option value="#3498db">Blue</option>
-                <option value="#2ecc71">Green</option>
-                <option value="#e74c3c">Red</option>
-                <option value="#f39c12">Yellow</option>
-                <option value="#9b59b6">Purple</option>
-            </select>
-            <label for="font-color">Choose Font Color:</label>
-            <select id="font-color">
-                <option value="#333">Default</option>
-                <option value="#fff">White</option>
-                <option value="#000">Black</option>
-                <option value="#e67e22">Orange</option>
-                <option value="#2c3e50">Dark Gray</option>
-                <option value="#ecf0f1">Light Gray</option>
-            </select>
-            <button id="save-btn" onclick="saveSettings()">Save</button>
-        </div>
-    </div>
